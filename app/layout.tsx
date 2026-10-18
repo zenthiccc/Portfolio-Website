@@ -18,13 +18,28 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "https://example.com");
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.SITE_URL || "https://example.com"),
+  metadataBase: new URL(siteUrl),
   title: `${profile.name} — Software Engineer`,
+  description: profile.tagline,
   openGraph: {
     title: `${profile.name} — Software Engineer`,
+    description: profile.tagline,
     siteName: profile.name,
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${profile.name} — Software Engineer`,
+    description: profile.tagline,
   },
 };
 

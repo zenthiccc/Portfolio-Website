@@ -1,5 +1,13 @@
 [
   {
+    "name": "Portfolio-Website",
+    "description": "Next.js site pulling live from GitHub, built with the App Router, Tailwind CSS v4, and TypeScript.",
+    "url": "https://github.com/zenthiccc/Portfolio-Website",
+    "language": "JavaScript",
+    "pushedAt": "2026-10-18T09:15:54Z",
+    "stars": 0
+  },
+  {
     "name": "csci71-project",
     "description": null,
     "url": "https://github.com/zenthiccc/csci71-project",
