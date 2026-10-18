@@ -21,10 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL || "https://example.com"),
   title: `${profile.name} — Software Engineer`,
-  description: profile.description,
   openGraph: {
     title: `${profile.name} — Software Engineer`,
-    description: profile.description,
     siteName: profile.name,
     type: "website",
   },
