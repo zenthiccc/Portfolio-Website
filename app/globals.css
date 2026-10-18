@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #020d1cdb;
+  --color-surface: #0a0a0a;
+  --color-border: #1f2937;
+  --color-foreground: #ededed;
+  --color-muted: #9ca3af;
+  --color-accent: #e09a19;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+html.light {
+  --color-background: #faf6ee;
+  --color-surface: #f1ebdd;
+  --color-border: #e4dccb;
+  --color-foreground: #1c1917;
+  --color-muted: #6f6757;
+  --color-accent: #ac0d0d;
+}
+
+html {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+@supports not (view-transition-name: root) {
+  body {
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    z-index: 1;
+    animation: none;
+  }
+
+  ::view-transition-new(root) {
+    z-index: 2;
+    animation: theme-slide 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes theme-slide {
+    from {
+      clip-path: inset(0 0 0 100%);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-background);
+}
