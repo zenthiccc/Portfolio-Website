@@ -1,6 +1,6 @@
 # Portfolio Website
 
-Personal portfolio for **Joseph Duron Jr.** — a dark-first, single-page site
+A dark-first, single-page site
 with a sticky header and an experience timeline that stays pinned while the
 projects list scrolls. On small screens the timeline stacks above the projects.
 
