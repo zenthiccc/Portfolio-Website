@@ -31,6 +31,7 @@ async function main() {
       url: repo.html_url,
       language: repo.language ?? null,
       pushedAt: repo.pushed_at,
+      createdAt: repo.created_at,
       stars: repo.stargazers_count ?? 0,
     }))
     .sort((a, b) => new Date(b.pushedAt) - new Date(a.pushedAt));

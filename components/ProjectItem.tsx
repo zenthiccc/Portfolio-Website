@@ -1,20 +1,21 @@
 import type { Repo } from "@/lib/github";
 import { getLanguageIcon, LanguageIcon } from "./LanguageIcon";
 
-const pushedFormat = new Intl.DateTimeFormat("en-US", {
+const dateFormat = new Intl.DateTimeFormat("en-US", {
   month: "short",
   year: "numeric",
   timeZone: "UTC",
 });
 
 export function ProjectItem({ repo }: { repo: Repo }) {
-  const pushed = pushedFormat.format(new Date(repo.pushedAt));
+  const updated = dateFormat.format(new Date(repo.pushedAt));
+  const created = dateFormat.format(new Date(repo.createdAt));
   const language = repo.language;
   const icon = language ? getLanguageIcon(language) : undefined;
 
   return (
     <article>
-      <p className="flex items-center gap-2 text-[0.7rem] font-medium uppercase tracking-[0.18em]">
+      <p className="flex flex-wrap items-center gap-2 text-[0.7rem] font-medium uppercase tracking-[0.18em]">
         {icon && language ? (
           <span className="inline-flex items-center" title={language}>
             <LanguageIcon icon={icon} className="h-5.5 w-5.5 shrink-0" />
@@ -24,7 +25,9 @@ export function ProjectItem({ repo }: { repo: Repo }) {
           <span>{language}</span>
         ) : null}
         {language ? <span aria-hidden="true">·</span> : null}
-        <span>{pushed}</span>
+        <span>Updated {updated}</span>
+        <span aria-hidden="true">·</span>
+        <span>Created {created}</span>
       </p>
       <h3 className="mt-2 font-display text-lg font-semibold break-words">
         {repo.name}

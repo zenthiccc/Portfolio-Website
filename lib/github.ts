@@ -7,6 +7,7 @@ export type Repo = {
   url: string;
   language: string | null;
   pushedAt: string;
+  createdAt: string;
   stars: number;
 };
 
@@ -38,6 +39,7 @@ export async function getRepos(): Promise<Repo[]> {
       html_url: string;
       language: string | null;
       pushed_at: string;
+      created_at: string;
       stargazers_count: number;
       fork: boolean;
       archived: boolean;
@@ -53,6 +55,7 @@ export async function getRepos(): Promise<Repo[]> {
         url: repo.html_url,
         language: repo.language ?? null,
         pushedAt: repo.pushed_at,
+        createdAt: repo.created_at,
         stars: repo.stargazers_count ?? 0,
       }))
       .sort((a, b) => Date.parse(b.pushedAt) - Date.parse(a.pushedAt));
