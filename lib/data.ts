@@ -36,7 +36,7 @@ export const experience: Experience[] = [
   {
     company: "General Motors Philippines",
     role: "Transformation Analyst (Automations Engineer)",
-    period: "June 2026 – Present",
+    period: "Jul 2026 – Present",
     logo: { src: "/logos/general-motors.svg", alt: "General Motors" },
   },
   {
